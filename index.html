@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق الجولات</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Start Screen -->
+        <div id="startScreen" class="screen">
+            <h1> عشان منسرقش</h1>
+            <button onclick="showNameInputScreen()" class="btn-primary">ابدأ</button>
+        </div>
+
+        <!-- Name Input Screen -->
+        <div id="nameInputScreen" class="screen hidden">
+            <h2>إدخال الأسماء</h2>
+            <div class="form-section">
+                <input type="text" id="nameInput" placeholder="أدخل اسمًا">
+                <button onclick="addName()" class="btn-primary">إضافة اسم</button>
+            </div>
+            <div class="recommended-section">
+                <h3>الأسماء المقترحة</h3>
+                <ul id="recommendedNames"></ul>
+                <input type="text" id="recommendedInput" placeholder="أضف اسمًا مقترحًا">
+                <button onclick="addRecommendedName()" class="btn-secondary">إضافة اسم مقترح</button>
+            </div>
+            <!-- List of Chosen Names -->
+            <div class="chosen-names-section">
+                <h3>الأسماء المختارة</h3>
+                <ul id="chosenNames"></ul>
+            </div>
+            <button onclick="startFirstRound()" class="btn-primary start-round-btn">بدء الجولة الأولى</button>
+        </div>
+
+        <!-- Round Screen -->
+        <div id="roundScreen" class="screen hidden">
+            <h2>الجولة <span id="roundNumber">1</span></h2>
+            <table id="namesTable">
+                <thead>
+                    <tr>
+                        <th>الاسم</th>
+                        <th>النقاط</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be added here dynamically -->
+                </tbody>
+            </table>
+            <div class="button-group">
+                <button onclick="addNewRound()" class="btn-primary">الذهاب إلى جولة جديدة</button>
+                <button onclick="finishNow()" class="btn-secondary">إنهاء الآن</button>
+            </div>
+        </div>
+
+        <!-- Winner Screen -->
+        <div id="winnerScreen" class="screen hidden">
+            <h2>الفائز: <span id="winnerName"></span></h2>
+            <button onclick="resetApp()" class="btn-primary">إعادة التشغيل</button>
+        </div>
+    </div>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,191 @@
+/* General Styles */
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: #1e1e2f;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    direction: rtl; /* Right-to-left for Arabic */
+}
+
+.container {
+    background-color: #2a2a40;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Buttons */
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+.btn-primary {
+    background-color: #6c5ce7;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #5a4fcf;
+}
+
+.btn-secondary {
+    background-color: #ff7675;
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #e66767;
+}
+
+.start-round-btn {
+    margin-top: 20px;
+}
+
+/* Form Section */
+.form-section {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: calc(100% - 120px);
+    margin-left: 10px; /* Adjusted for RTL */
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #3a3a50;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+/* Recommended Names Section */
+.recommended-section {
+    margin-bottom: 20px;
+}
+
+.recommended-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.recommended-section ul li {
+    padding: 10px;
+    background-color: #3a3a50;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.recommended-section ul li:hover {
+    background-color: #4a4a60;
+}
+
+.recommended-section ul li button {
+    background-color: #ff7675;
+    border: none;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.recommended-section ul li button:hover {
+    background-color: #e66767;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #444;
+}
+
+th {
+    background-color: #6c5ce7;
+    color: #ffffff;
+}
+
+td input {
+    width: 80px;
+    padding: 8px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #3a3a50;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+/* Chosen Names Section */
+.chosen-names-section {
+    margin-bottom: 20px;
+}
+
+.chosen-names-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.chosen-names-section ul li {
+    padding: 10px;
+    background-color: #3a3a50;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chosen-names-section ul li:hover {
+    background-color: #4a4a60;
+}
