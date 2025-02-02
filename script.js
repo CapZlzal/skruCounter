@@ -90,14 +90,29 @@ function deleteRecommendedName(name) {
 }
 
 // Render Chosen Names
+
 function renderChosenNames() {
     const chosenNamesList = document.getElementById('chosenNames');
     chosenNamesList.innerHTML = '';
-    names.forEach(name => {
+    names.forEach((name, index) => {
         const li = document.createElement('li');
         li.textContent = name;
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'حذف';
+        deleteBtn.onclick = (e) => {
+            e.stopPropagation();
+            deleteChosenName(index);
+        };
+        li.appendChild(deleteBtn);
         chosenNamesList.appendChild(li);
     });
+}
+
+// Delete Chosen Name
+function deleteChosenName(index) {
+    names.splice(index, 1); // Remove the name from the names array
+    rounds.splice(index, 1); // Remove the corresponding rounds
+    renderChosenNames(); // Re-render the chosen names list
 }
 
 // Start First Round
@@ -134,31 +149,24 @@ function addNewRound() {
 }
 
 // Finish Now
-// Finish Now
 function finishNow() {
     // Calculate total scores for each player
     const totalScores = names.map((name, index) => {
         const playerRounds = rounds[index] || []; // Get rounds for the player (or empty array if undefined)
         const total = playerRounds.reduce((sum, score) => sum + (Number(score) || 0), 0); // Sum valid scores
-        return total;
+        return { name, total };
     });
 
-    // Find the minimum score
-    const minScore = Math.min(...totalScores);
+    // Sort players by score (from lowest to highest)
+    totalScores.sort((a, b) => a.total - b.total);
 
-    // Find all players with the minimum score (in case of a tie)
-    const winnerIndices = totalScores.reduce((indices, score, index) => {
-        if (score === minScore) indices.push(index);
-        return indices;
-    }, []);
-
-    // Get the winner(s) names
-    const winnerNames = winnerIndices.map(index => names[index]).join(" و "); // Join names with "و" for multiple winners
+    // Display the results
+    const winnerNames = totalScores.map(player => `${player.name} (${player.total} نقطة)`).join("<br>");
 
     // Show winner screen
     document.getElementById('roundScreen').classList.add('hidden');
     document.getElementById('winnerScreen').classList.remove('hidden');
-    document.getElementById('winnerName').textContent = winnerNames;
+    document.getElementById('winnerName').innerHTML = winnerNames;
 }
 // Reset App
 function resetApp() {
