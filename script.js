@@ -134,18 +134,32 @@ function addNewRound() {
 }
 
 // Finish Now
+// Finish Now
 function finishNow() {
-    const totalScores = rounds.map(round => round.reduce((a, b) => a + b, 0));
+    // Calculate total scores for each player
+    const totalScores = names.map((name, index) => {
+        const playerRounds = rounds[index] || []; // Get rounds for the player (or empty array if undefined)
+        const total = playerRounds.reduce((sum, score) => sum + (Number(score) || 0), 0); // Sum valid scores
+        return total;
+    });
+
+    // Find the minimum score
     const minScore = Math.min(...totalScores);
-    const winnerIndex = totalScores.indexOf(minScore);
-    const winnerName = names[winnerIndex];
+
+    // Find all players with the minimum score (in case of a tie)
+    const winnerIndices = totalScores.reduce((indices, score, index) => {
+        if (score === minScore) indices.push(index);
+        return indices;
+    }, []);
+
+    // Get the winner(s) names
+    const winnerNames = winnerIndices.map(index => names[index]).join(" و "); // Join names with "و" for multiple winners
 
     // Show winner screen
     document.getElementById('roundScreen').classList.add('hidden');
     document.getElementById('winnerScreen').classList.remove('hidden');
-    document.getElementById('winnerName').textContent = winnerName;
+    document.getElementById('winnerName').textContent = winnerNames;
 }
-
 // Reset App
 function resetApp() {
     names = [];
