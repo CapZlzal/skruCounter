@@ -189,18 +189,33 @@ td input {
 .chosen-names-section ul li:hover {
     background-color: #4a4a60;
 }
-/* Footer Styles */
-footer {
-    text-align: center;
-    margin-top: 30px;
+/* Chosen Names Section */
+.chosen-names-section ul li {
     padding: 10px;
-    background-color: #2a2a40;
-    color: #ffffff;
-    border-top: 1px solid #444;
-    font-size: 14px;
+    background-color: #3a3a50;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-footer .owner-name {
-    color: #6c5ce7;
-    font-weight: bold;
+.chosen-names-section ul li:hover {
+    background-color: #4a4a60;
+}
+
+.chosen-names-section ul li button {
+    background-color: #ff7675;
+    border: none;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chosen-names-section ul li button:hover {
+    background-color: #e66767;
 }
