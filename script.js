@@ -8,8 +8,7 @@ let recommendedNames = JSON.parse(localStorage.getItem('recommendedNames')) || [
     'محمد بدر', 'مروان'
 
 ];
-// Update the current year in the footer
-document.getElementById('currentYear').textContent = new Date().getFullYear();
+
 // Show Name Input Screen
 function showNameInputScreen() {
     document.getElementById('startScreen').classList.add('hidden');
